@@ -8,6 +8,7 @@ version = "0.0.1"
 description = "Algerie Post Data Mining Project: Enhancement and Evolution of the Interactive Dashboard for Parcel Management and Tracking"
 authors = [
   { name = "Achour Djamel Eddine" },
+    {name = "Azizi Abdellah Esmail"}
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
@@ -15,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License"
 ]
-requires-python = "~=3.12.0"
+requires-python = "~=3.13.0"
 
 
 [tool.ruff]
