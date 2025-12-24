@@ -1,0 +1,17 @@
+- Packages dataset has `date` values between 2020-2025
+- receptacle has between 2022-2025
+- `MAILITM_FID` is duplicated in packages dataset
+- visualized distribution of features in our case can only 
+be used for imputation (null values handling)
+- higher traffic between two establishements doesn't
+necessarily imply majorness of distribution centers
+(it could be the only center in a big traffic route).
+- most frequent routes may help us decide lost or
+packets/receptacles facing issues during transfer
+(like the most active routes are more likely to have issues).
+- same for most active centers.
+- number of packages per receptacle why needed to merge?
+(could be extracted from packages dataset directly)
+- null values and data inconsistencies (packages having
+a non-existent receptacle IDs, Dates differences between
+the two datasets, etc.) aren't handled!
