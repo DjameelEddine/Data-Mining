@@ -4,9 +4,6 @@
 
 export interface OverviewStats {
   total_shipments: number;
-  delivered: number;
-  in_transit: number;
-  delayed: number;
   unique_packages: number;
   date_range_start: string;
   date_range_end: string;
@@ -32,7 +29,6 @@ export interface PredictionResult {
   last_scan_date: string;
   total_scans: number;
   was_saved: boolean;
-  status: string;
   features: Record<string, string>;
   journey_history: JourneyHistoryRow[];
 }

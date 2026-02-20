@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from services.data_service import derive_status, get_reference_df
+from services.data_service import  get_reference_df
 
 router = APIRouter(prefix="/api/stats", tags=["stats"])
 
@@ -15,8 +15,7 @@ router = APIRouter(prefix="/api/stats", tags=["stats"])
 def overview():
     """High-level shipment counts."""
     df = get_reference_df().copy()
-    df["status"] = df["EVENT_TYPE_CD"].apply(derive_status)
-
+    
     delivered = int((df["status"] == "Delivered").sum())
     delayed = int((df["status"] == "Delayed").sum())
     in_transit = int((df["status"] == "In Transit").sum())

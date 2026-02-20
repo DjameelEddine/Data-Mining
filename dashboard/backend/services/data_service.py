@@ -166,25 +166,3 @@ def prepare_features(row_df: pd.DataFrame, package_history: pd.DataFrame, full_d
 
     return df[FINAL_FEATURE_ORDER]
 
-
-# ---------------------------------------------------------------------------
-# Status derivation helpers (for UI)
-# ---------------------------------------------------------------------------
-# Event-type codes observed in the data:
-#   2  = departure/transit,  30 = arrived at office,  32 = import received,
-#  35 = attempted delivery, 36 = en route, 37 = customs, 39 = item presented
-_DELIVERED_EVENTS = {35}
-_DELAYED_EVENTS = {39, 37}
-
-
-def derive_status(event_type_cd) -> str:
-    """Turn an EVENT_TYPE_CD into a human-readable status."""
-    try:
-        code = int(event_type_cd)
-    except (ValueError, TypeError):
-        return "In Transit"
-    if code in _DELIVERED_EVENTS:
-        return "Delivered"
-    if code in _DELAYED_EVENTS:
-        return "Delayed"
-    return "In Transit"

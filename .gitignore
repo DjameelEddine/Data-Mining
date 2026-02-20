@@ -1,6 +1,7 @@
 # Data
 /data/
-
+#catboost information
+catboost_info/
 # Mac OS-specific storage files
 .DS_Store
 

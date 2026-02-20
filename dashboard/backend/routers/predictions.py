@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from services.data_service import get_reference_df, prepare_features, derive_status
+from services.data_service import get_reference_df, prepare_features
 from services.ml_service import predict, log_prediction, get_predictions_log
 
 router = APIRouter(prefix="/api", tags=["predictions"])
@@ -73,7 +73,6 @@ def predict_route(mailitm_fid: str):
         "last_scan_date": str(row_data["date"])[:19],
         "total_scans": len(package_history),
         "was_saved": was_saved,
-        "status": derive_status(row_data.get("EVENT_TYPE_CD", "")),
         "features": features_dict,
         "journey_history": journey_history,
     }
