@@ -19,11 +19,13 @@ from config import CORS_ORIGINS
 async def lifespan(app: FastAPI):
     """Pre-load heavy resources once on startup."""
     # Import here to avoid circular imports at module level
-    from services.data_service import load_reference_data
-    from services.ml_service import load_model
+    from services.data_service import load_reference_data, load_rcp_reference_data
+    from services.ml_service import load_model, load_rcp_model
 
     load_reference_data()
+    load_rcp_reference_data()
     load_model()
+    load_rcp_model()
     yield  # app is running
     # shutdown – nothing to clean up
 
